@@ -1,22 +1,17 @@
-# Cloud Build config for test_repo. Mimics a real consumer repo.
-# All infra values are supplied by the trigger (created via `bash gcp/setup.sh consumer <REPO_NAME>`).
 substitutions:
-  _VARIANT: package_and_image
   _STAGE_NAME: ""
-  _AR_LOCATION: ""
-  _AR_DOCKER_REPO: ""
-  _AR_PYPI_REPO: ""
+  _ARTIFACT_REGISTRY_LOCATION: ""
+  _ARTIFACT_REGISTRY_DOCKER: ""
+  _ARTIFACT_REGISTRY_PYPI: ""
   _IMAGE_NAME: ""
-  _CLOUD_RUN_SERVICE: ""
-  _CLOUD_RUN_REGION: ""
 timeout: 2400s
 steps:
-  - name: ${_AR_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_AR_DOCKER_REPO}/${_IMAGE_NAME}
+  - name: ${_ARTIFACT_REGISTRY_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_ARTIFACT_REGISTRY_DOCKER}/${_IMAGE_NAME}
     env:
-      - VARIANT=${_VARIANT}
+      - HAS_IMAGE=false
+      - HAS_PACKAGE=true
+      - TEST_KIND=
       - STAGE_NAME=${_STAGE_NAME}
-      - AR_LOCATION=${_AR_LOCATION}
-      - AR_DOCKER_REPO=${_AR_DOCKER_REPO}
-      - AR_PYPI_REPO=${_AR_PYPI_REPO}
-      - CLOUD_RUN_SERVICE=${_CLOUD_RUN_SERVICE}
-      - CLOUD_RUN_REGION=${_CLOUD_RUN_REGION}
+      - ARTIFACT_REGISTRY_LOCATION=${_ARTIFACT_REGISTRY_LOCATION}
+      - ARTIFACT_REGISTRY_DOCKER=${_ARTIFACT_REGISTRY_DOCKER}
+      - ARTIFACT_REGISTRY_PYPI=${_ARTIFACT_REGISTRY_PYPI}
