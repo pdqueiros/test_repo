@@ -1,0 +1,9 @@
+services:
+  test_repo:
+    image: ${REGISTRY}/${PACKAGE_NAME}:${IMAGE_TAG}
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+      args:
+        - UV_INDEX_PASSWORD
+        - PYPI_INDEX_URL
