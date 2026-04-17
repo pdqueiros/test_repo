@@ -1,3 +1,8 @@
+
+options:
+  logging: CLOUD_LOGGING_ONLY
+
+
 substitutions:
   _STAGE_NAME: ""
   _ARTIFACT_REGISTRY_LOCATION: ""
