@@ -1,6 +1,6 @@
 [project]
 name = "test_repo"
-version = "0.0.1"
+version = "0.0.2"
 description = "Test repo for Scryn"
 authors = [
     { name = "Pedro Queiros", email = "pedro.queiros@scryn.co" },
