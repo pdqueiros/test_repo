@@ -1,5 +1,5 @@
 services:
-  child_test_repo:
+  test_repo:
     image: ${REGISTRY}/${PACKAGE_NAME}:${IMAGE_TAG:-latest}
     build:
       context: .
